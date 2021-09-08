@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "DataSampling.h"
 /*********************************************************************************/
-#if(DATA_SAMPLING_REVISION_DATE != 20180403)
+#if(DATA_SAMPLING_REVISION_DATE != 20190723)
 #error wrong include file. (DataSampling.h)
 #endif
 /*********************************************************************************/
@@ -26,9 +26,9 @@
 	3) 설명
 		- 인수로 전달받은 데이터로 버퍼를 채움.
 */
-static void FillBuffer(tag_DataSampling *Smp, int Data)
+static void FillBuffer(tag_DataSampling *Smp, tS16 Data)
 {
-	int i;
+	tS16 i;
 
 	Smp->Sum = Smp->Index = 0;
 	for(i = 0; i < Smp->Level; i++)
@@ -51,14 +51,14 @@ static void FillBuffer(tag_DataSampling *Smp, int Data)
 		- 'tag_DataSampling' 인스턴스의 필수 초기화 실행.
 		- DataSampling 모듈을 사용하기 위해 선행적 실행 필요.
 */
-char DataSamplingInitGeneral(tag_DataSampling *Smp, int BufSize)
+tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize)
 {
 	if(Smp->Bit.InitGeneral == true)
 	{
 		return true;
 	}
 
-	Smp->Buf = (int *) malloc(sizeof(int) * BufSize);
+	Smp->Buf = (tS16 *) malloc(sizeof(tS16) * BufSize);
 
 	if(Smp->Buf != null)
 	{
@@ -81,7 +81,7 @@ char DataSamplingInitGeneral(tag_DataSampling *Smp, int BufSize)
 	3) 설명
 		- 샘플링 수준(Level) 변경.
 */
-void DataSamplingChangeLevel(tag_DataSampling *Smp, int Level)
+void DataSamplingChangeLevel(tag_DataSampling *Smp, tS16 Level)
 {
 	if((Smp->Bit.InitGeneral == false) || (Smp->Bit.InitFillBuffer == false))
 	{
@@ -106,9 +106,9 @@ void DataSamplingChangeLevel(tag_DataSampling *Smp, int Level)
 	3) 설명
 		- ring buffer 형식으로 데이터를 입력 받아 평균을 내어 샘플링.
 */
-int DataSamplingGetData(tag_DataSampling *Smp, int Data)
+tS16 DataSamplingGetData(tag_DataSampling *Smp, tS16 Data)
 {
-	int Result;
+	tS16 Result;
 
 	if(Smp->Bit.InitGeneral == false)
 	{
