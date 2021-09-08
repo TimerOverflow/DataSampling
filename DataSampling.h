@@ -9,10 +9,13 @@
 /*********************************************************************************/
 #include "SysTypedef.h"
 /*********************************************************************************/
-#define DATA_SAMPLING_REVISION_DATE		20200416
+#define DATA_SAMPLING_REVISION_DATE		20200724
 /*********************************************************************************/
 /** REVISION HISTORY **/
 /*
+	2020. 07. 24.					- 이제 샘플링 데이터의 자료형을 tS8, tS16, tS32 중 선택할 수 있음.
+	Jeong Hyun Gu
+
 	2020. 04. 16.					- DataSamplingResetData()에서 FillBuffer()호출 부분 삭제.
 	Jeong Hyun Gu
 
@@ -47,17 +50,18 @@ typedef struct
 		tU8 InitFillBuffer			:				1;				//버퍼초기화
 	}Bit;
 
-	tS16 *Buf;
+	void *Buf;
 	tS16 Index, BufSize, Level;
 	tS32 Sum;
+	tS8 DataSize;
 }tag_DataSampling;
 
 /*********************************************************************************/
 /**Function**/
 
-tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize);
+tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize, tS8 DataSzie);
 void DataSamplingChangeLevel(tag_DataSampling *Smp, tS16 Level);
-tS16 DataSamplingGetData(tag_DataSampling *Smp, tS16 Data);
+tS32 DataSamplingGetData(tag_DataSampling *Smp, tS32 Data);
 void DataSamplingResetData(tag_DataSampling *Smp);
 
 /*********************************************************************************/
