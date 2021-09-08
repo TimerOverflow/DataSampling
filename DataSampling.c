@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "DataSampling.h"
 /*********************************************************************************/
-#if(DATA_SAMPLING_REVISION_DATE != 20171017)
+#if(DATA_SAMPLING_REVISION_DATE != 20180403)
 #error wrong include file. (DataSampling.h)
 #endif
 /*********************************************************************************/
@@ -129,5 +129,26 @@ int DataSamplingGetData(tag_DataSampling *Smp, int Data)
 	if(++(Smp->Index) >= Smp->Level) Smp->Index = 0;
 
 	return Result;
+}
+/*********************************************************************************/
+/*
+	1) 인수
+		- Smp : tag_DataSampling 인스턴스의 주소.
+
+	2) 반환
+		- 없음.
+
+	3) 설명
+		- 버퍼 초기화 실행.
+*/
+void DataSamplingResetData(tag_DataSampling *Smp)
+{
+	if((Smp->Bit.InitGeneral == false) || (Smp->Bit.InitFillBuffer == false))
+	{
+		return;
+	}
+
+	Smp->Bit.InitFillBuffer = false;
+	FillBuffer(Smp, 0);
 }
 /*********************************************************************************/
