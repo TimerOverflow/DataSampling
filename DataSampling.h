@@ -9,10 +9,13 @@
 /*********************************************************************************/
 #include "SysTypedef.h"
 /*********************************************************************************/
-#define DATA_SAMPLING_REVISION_DATE		20190723
+#define DATA_SAMPLING_REVISION_DATE		20200416
 /*********************************************************************************/
 /** REVISION HISTORY **/
 /*
+	2020. 04. 16.					- DataSamplingResetData()에서 FillBuffer()호출 부분 삭제.
+	Jeong Hyun Gu
+
 	2019. 07. 23.					- SysTypedef.h 적용.
 	Jeong Hyun Gu
 

@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "DataSampling.h"
 /*********************************************************************************/
-#if(DATA_SAMPLING_REVISION_DATE != 20190723)
+#if(DATA_SAMPLING_REVISION_DATE != 20200416)
 #error wrong include file. (DataSampling.h)
 #endif
 /*********************************************************************************/
@@ -149,6 +149,5 @@ void DataSamplingResetData(tag_DataSampling *Smp)
 	}
 
 	Smp->Bit.InitFillBuffer = false;
-	FillBuffer(Smp, 0);
 }
 /*********************************************************************************/
