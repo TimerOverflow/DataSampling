@@ -7,10 +7,15 @@
 #ifndef __DATA_SAMPLING_H__
 #define	__DATA_SAMPLING_H__
 /*********************************************************************************/
-#define DATA_SAMPLING_REVISION_DATE		20180403
+#include "SysTypedef.h"
+/*********************************************************************************/
+#define DATA_SAMPLING_REVISION_DATE		20190723
 /*********************************************************************************/
 /** REVISION HISTORY **/
 /*
+	2019. 07. 23.					- SysTypedef.h 적용.
+	Jeong Hyun Gu
+
 	2018. 04. 03.					- DataSamplingResetData() 함수 추가.
 	Jeong Hyun Gu
 
@@ -35,21 +40,21 @@ typedef struct
 {
 	struct
 	{
-		char InitGeneral			:				1;				//필수초기화
-		char InitFillBuffer		:				1;				//버퍼초기화
+		tU8 InitGeneral					:				1;				//필수초기화
+		tU8 InitFillBuffer			:				1;				//버퍼초기화
 	}Bit;
 
-	int *Buf;
-	int Index, BufSize, Level;
-	long Sum;
+	tS16 *Buf;
+	tS16 Index, BufSize, Level;
+	tS32 Sum;
 }tag_DataSampling;
 
 /*********************************************************************************/
 /**Function**/
 
-char DataSamplingInitGeneral(tag_DataSampling *Smp, int BufSize);
-void DataSamplingChangeLevel(tag_DataSampling *Smp, int Level);
-int DataSamplingGetData(tag_DataSampling *Smp, int Data);
+tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize);
+void DataSamplingChangeLevel(tag_DataSampling *Smp, tS16 Level);
+tS16 DataSamplingGetData(tag_DataSampling *Smp, tS16 Data);
 void DataSamplingResetData(tag_DataSampling *Smp);
 
 /*********************************************************************************/
