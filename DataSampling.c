@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "DataSampling.h"
 /*********************************************************************************/
-#if(DATA_SAMPLING_REVISION_DATE != 20200724)
+#if(DATA_SAMPLING_REVISION_DATE != 20230125)
 #error wrong include file. (DataSampling.h)
 #endif
 /*********************************************************************************/
