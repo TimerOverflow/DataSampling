@@ -21,6 +21,18 @@ static tS32 *pS32;
 static tS32 Ret;
 
 /*********************************************************************************/
+/*
+  1) 인수
+    - Smp : tag_DataSampling 인스턴스의 주소.
+    - Idx : 데이터 삽입 위치를 지시하는 index.
+    - Data : 삽입할 데이터.
+
+  2) 반환
+    - 없음.
+
+  3) 설명
+    - 버퍼에 데이터 삽입.
+*/
 inline static void InToBuf(tag_DataSampling *Smp, tU8 Idx, tS32 Data)
 {
   switch(Smp->DataSize)
@@ -31,6 +43,17 @@ inline static void InToBuf(tag_DataSampling *Smp, tU8 Idx, tS32 Data)
   }
 }
 /*********************************************************************************/
+/*
+  1) 인수
+    - Smp : tag_DataSampling 인스턴스의 주소.
+    - Idx : 데이터 삽입 위치를 지시하는 index.
+
+  2) 반환
+    - 읽은 데이터.
+
+  3) 설명
+    - 버퍼에서 특정 index의 데이터를 반환한다.
+*/
 inline static tS32 OutFromBuf(tag_DataSampling *Smp, tU8 Idx)
 {
   switch(Smp->DataSize)
