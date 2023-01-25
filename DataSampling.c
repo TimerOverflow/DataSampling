@@ -22,16 +22,16 @@ static tS32 Ret;
 
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 버퍼에 데이터 삽입.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - Idx : 데이터 삽입 위치를 지시하는 index.
     - Data : 삽입할 데이터.
 
-  2) 반환
+  @retval
     - 없음.
-
-  3) 설명
-    - 버퍼에 데이터 삽입.
 */
 inline static void InToBuf(tag_DataSampling *Smp, tU8 Idx, tS32 Data)
 {
@@ -44,15 +44,15 @@ inline static void InToBuf(tag_DataSampling *Smp, tU8 Idx, tS32 Data)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 버퍼에서 특정 index의 데이터를 반환한다.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - Idx : 데이터 삽입 위치를 지시하는 index.
 
-  2) 반환
+  @retval
     - 읽은 데이터.
-
-  3) 설명
-    - 버퍼에서 특정 index의 데이터를 반환한다.
 */
 inline static tS32 OutFromBuf(tag_DataSampling *Smp, tU8 Idx)
 {
@@ -67,15 +67,15 @@ inline static tS32 OutFromBuf(tag_DataSampling *Smp, tU8 Idx)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 인수로 전달받은 데이터로 버퍼를 채움.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - Data : 버퍼를 채울 데이터.
 
-  2) 반환
+  @retval
     - 없음.
-
-  3) 설명
-    - 인수로 전달받은 데이터로 버퍼를 채움.
 */
 static void FillBuffer(tag_DataSampling *Smp, tS32 Data)
 {
@@ -90,17 +90,17 @@ static void FillBuffer(tag_DataSampling *Smp, tS32 Data)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 'tag_DataSampling' 인스턴스의 필수 초기화 실행.
+    - DataSampling 모듈을 사용하기 위해 선행적 실행 필요.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - BufSize : 동적할당 받을 버퍼의 크기.
 
-  2) 반환
+  @retval
     - 0 : 초기화 실패.
     - 1 : 초기화 성공.
-
-  3) 설명
-    - 'tag_DataSampling' 인스턴스의 필수 초기화 실행.
-    - DataSampling 모듈을 사용하기 위해 선행적 실행 필요.
 */
 tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize, tS8 DataSize)
 {
@@ -129,15 +129,15 @@ tU8 DataSamplingInitGeneral(tag_DataSampling *Smp, tS16 BufSize, tS8 DataSize)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 샘플링 수준(Level) 변경.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - Level : 변경할 샘플링 수준.
 
-  2) 반환
+  @retval
     - 없음.
-
-  3) 설명
-    - 샘플링 수준(Level) 변경.
 */
 void DataSamplingChangeLevel(tag_DataSampling *Smp, tS16 Level)
 {
@@ -154,15 +154,15 @@ void DataSamplingChangeLevel(tag_DataSampling *Smp, tS16 Level)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - ring buffer 형식으로 데이터를 입력 받아 평균을 내어 샘플링.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
     - Data : 데이터.
 
-  2) 반환
+  @retval
     - Result : 샘플링된 데이터.
-
-  3) 설명
-    - ring buffer 형식으로 데이터를 입력 받아 평균을 내어 샘플링.
 */
 tS32 DataSamplingGetData(tag_DataSampling *Smp, tS32 Data)
 {
@@ -190,14 +190,14 @@ tS32 DataSamplingGetData(tag_DataSampling *Smp, tS32 Data)
 }
 /*********************************************************************************/
 /*
-  1) 인수
+  @brief
+    - 버퍼 초기화 실행.
+
+  @param
     - Smp : tag_DataSampling 인스턴스의 주소.
 
-  2) 반환
+  @retval
     - 없음.
-
-  3) 설명
-    - 버퍼 초기화 실행.
 */
 void DataSamplingResetData(tag_DataSampling *Smp)
 {
